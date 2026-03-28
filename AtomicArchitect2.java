@@ -10,7 +10,7 @@ Date: March 2026
 /**
 
 Atomic Lab Architect JAVA - ALAJ
- * Atomic Architect2
+ * Atomic Architect
  * A Java-based chemical analysis tool and molecular dynamics simulator.
  * * Features
  * * Electron Configuration
@@ -24,7 +24,7 @@ Atomic Lab Architect JAVA - ALAJ
  */
 import java.util.*;
 
-public class AtomicArchitect2 {
+public class AtomicArchitect {
 
     static class Atom {
         String name, symbol, config;
@@ -278,6 +278,21 @@ if (counts.containsKey("O") && counts.containsKey("H")) {
         double sigma = 3.5, epsilon = 0.2, targetTemp = 200.0;
         String molName = "Generic Compound";
 
+        // Inside runLabSimulation
+int cCount = counts.getOrDefault("C", 0);
+boolean hBond = counts.containsKey("H") && (counts.containsKey("O") || counts.containsKey("N"));
+
+// Sync the Lab Thermostat with the Physical State Prediction
+double bpCelsius = -170.0 + (cCount * 32.0) + (molWeight * 0.2) + (hBond ? 160.0 : 0.0);
+if (cCount == 0 && counts.getOrDefault("O", 0) == 1) bpCelsius = 100.0; // Water override
+
+targetTemp = bpCelsius + 273.15; // Convert to Kelvin for the MD loop
+
+// Calibration: Adjust "Stickiness" (Epsilon) based on chain length
+// This prevents the "Freezing" effect in the small 40-molecule box
+epsilon = hBond ? 0.55 : (cCount > 4 ? 0.22 : 0.15);
+
+
         // Heuristic Intelligence Layer
         boolean hBonding = counts.containsKey("H") && (counts.containsKey("N") || counts.containsKey("O") || counts.containsKey("F"));
         if (counts.getOrDefault("C",0)==1 && counts.getOrDefault("H",0)==4) { epsilon=0.148; sigma=3.73; targetTemp=111.6; molName="Methane (CH4)"; }
@@ -286,7 +301,7 @@ if (counts.containsKey("O") && counts.containsKey("H")) {
 
             
             // 1. Get structural counts for the formula
-            int cCount = counts.getOrDefault("C", 0);
+            
             int hCount = counts.getOrDefault("H", 0);
             int oCount = counts.getOrDefault("O", 0);
             int nCount = counts.getOrDefault("N", 0);
@@ -365,7 +380,31 @@ molName = generateFormula(counts); // Dynamically name it
         }
     }
 
+    public static void predictPhysicalState(Map<String, Integer> counts, double weight) {
+    int cCount = counts.getOrDefault("C", 0);
+    boolean hBond = counts.containsKey("H") && (counts.containsKey("O") || counts.containsKey("N"));
+    
+    // REFINED HEURISTIC: 
+    // 1. Base BP for a single carbon (Methane) starts low (~ -161C)
+    // 2. Each Carbon adds ~25-30 degrees of "Stickiness"
+    // 3. Hydrogen Bonding adds a massive static jump
+    
+    double baseBP = -170.0; // Starting point for smallest molecules
+    double chainEffect = (cCount * 32.0); 
+    double massEffect = (weight * 0.2);
+    double polarityEffect = hBond ? 160.0 : 0.0;
+    
+    double bpCelsius = baseBP + chainEffect + massEffect + polarityEffect;
 
+    System.out.println("\n--- Physical State Prediction ---");
+    System.out.printf("Estimated Boiling Point: ~%.1f°C\n", bpCelsius);
+    
+    if (bpCelsius < 25) System.out.println("Predicted Phase: Gas (at 25°C)");
+    else if (cCount > 12) System.out.println("Predicted Phase: Solid (Waxy)");
+    else System.out.println("Predicted Phase: Liquid (at 25°C)");
+}
+
+/* 
     public static void predictPhysicalState(Map<String, Integer> counts, double weight) {
     int cCount = counts.getOrDefault("C", 0);
     boolean hasHBond = counts.containsKey("H") && (counts.containsKey("O") || counts.containsKey("N"));
@@ -381,7 +420,7 @@ molName = generateFormula(counts); // Dynamically name it
     else if (cCount > 10) System.out.println("Predicted Phase: Solid/Waxy (at 25°C)");
     else System.out.println("Predicted Phase: Liquid (at 25°C)");
 }
-
+*/
 /* 
     public static void predictPhysicalState(Map<String, Integer> counts, double weight) {
         boolean hasHBond = counts.containsKey("H") && (counts.containsKey("N") || counts.containsKey("O") || counts.containsKey("F"));
