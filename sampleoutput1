@@ -1,0 +1,258 @@
+How many unique element types? 2
+Enter Atomic Number (1-118): 6
+Enter Quantity: 8
+-> Carbon [1s^2 2s^2 2p^2]
+Enter Atomic Number (1-118): 1
+Enter Quantity: 18
+-> Hydrogen [1s^1]
+
+--- Discovery Scanner Analysis ---
+Status: [STABLE COMPOUND]
+
+--- Mass Composition ---
+C: 84.12%
+H: 15.88%
+
+--- Physical State Prediction ---
+Estimated Boiling Point: ~108.8°C
+Predicted Phase: Liquid (at 25°C)
+
+--- Structural Details ---
+Molecular Formula: C8H18
+SMILES Notation: CCCCCCCC
+Total Molecular Weight: 114.22912 g/mol
+
+Add a second molecule for a reaction test? (y/n): y
+Second Molecule - Unique element types: 1
+Atomic Num (1-118): 8
+Quantity: 2
+
+--- ⚗️ Reaction Prediction Lab ---
+Reaction: [COMBUSTION / OXIDATION]
+Products: 8CO2 + 9H2O
+Energy Released: -5700.40 kJ/mol (Highly Exothermic)
+Primary Bond Type: Non-Polar Covalent (Delta EN: 0.35)
+Predicted Bond Length (C-H): 110.85 pm
+Vibration Frequency: 98.17 THz
+
+--- Multi-Center Geometry Analysis ---
+At Carbon Center: Tetrahedral (109.5°)
+
+Run Digital Lab Simulation (MD) for this molecule? (y/n): y
+
+--- STABILIZED DIGITAL LAB: C8H18 ---
+Step 0 | Temp: 0.00 K | Status: HEATING
+Step 200 | Temp: 381.36 K | Status: HEATING
+Step 400 | Temp: 451.99 K | Status: HEATING
+Step 600 | Temp: 460.46 K | Status: STABILIZED
+Step 800 | Temp: 461.45 K | Status: STABILIZED
+Step 1000 | Temp: 461.58 K | Status: STABILIZED
+
+Analyze another? (y/n): y
+
+How many unique element types? 2
+Enter Atomic Number (1-118): 6
+Enter Quantity: 10
+-> Carbon [1s^2 2s^2 2p^2]
+Enter Atomic Number (1-118): 1
+Enter Quantity: 22
+-> Hydrogen [1s^1]
+
+--- Discovery Scanner Analysis ---
+Status: [STABLE COMPOUND]
+
+--- Mass Composition ---
+C: 84.42%
+H: 15.58%
+
+--- Physical State Prediction ---
+Estimated Boiling Point: ~178.5°C
+Predicted Phase: Liquid (at 25°C)
+
+--- Structural Details ---
+Molecular Formula: C10H22
+SMILES Notation: CCCCCCCCCC
+Total Molecular Weight: 142.28248 g/mol
+
+Add a second molecule for a reaction test? (y/n): n
+Primary Bond Type: Non-Polar Covalent (Delta EN: 0.35)
+Predicted Bond Length (C-H): 110.85 pm
+Vibration Frequency: 98.17 THz
+
+--- Multi-Center Geometry Analysis ---
+At Carbon Center: Tetrahedral (109.5°)
+
+Run Digital Lab Simulation (MD) for this molecule? (y/n): y
+
+--- STABILIZED DIGITAL LAB: C10H22 ---
+Step 0 | Temp: 0.00 K | Status: HEATING
+Step 200 | Temp: 424.73 K | Status: HEATING
+Step 400 | Temp: 506.11 K | Status: HEATING
+Step 600 | Temp: 515.49 K | Status: STABILIZED
+Step 800 | Temp: 516.67 K | Status: STABILIZED
+Step 1000 | Temp: 516.79 K | Status: STABILIZED
+
+Analyze another? (y/n): y
+
+How many unique element types? 3
+Enter Atomic Number (1-118): 6
+Enter Quantity: 3
+-> Carbon [1s^2 2s^2 2p^2]
+Enter Atomic Number (1-118): 1
+Enter Quantity: 8
+-> Hydrogen [1s^1]
+Enter Atomic Number (1-118): 8
+Enter Quantity: 1
+-> Oxygen [1s^2 2s^2 2p^4]
+
+--- Discovery Scanner Analysis ---
+Status: [STABLE COMPOUND]
+
+--- Mass Composition ---
+C: 59.96%
+H: 13.42%
+O: 26.62%
+
+--- Physical State Prediction ---
+Estimated Boiling Point: ~98.0°C
+Predicted Phase: Liquid (at 25°C)
+
+--- Structural Details ---
+Molecular Formula: C3H7OH
+SMILES Notation: CCC(O)
+Total Molecular Weight: 60.09472 g/mol
+
+Add a second molecule for a reaction test? (y/n): y
+Second Molecule - Unique element types: 3
+Atomic Num (1-118): 6
+Quantity: 2
+Atomic Num (1-118): 1
+Quantity: 4
+Atomic Num (1-118): 8
+Quantity: 2
+
+--- ⚗️ Reaction Prediction Lab ---
+Reaction: [FISCHER ESTERIFICATION]
+Mechanism: Nucleophilic Acyl Substitution
+Product: Ester (C5H10O2) + Water (H2O)
+Note: Likely produces a fruity or floral aroma.
+Primary Bond Type: Non-Polar Covalent (Delta EN: 0.35)
+Predicted Bond Length (C-H): 110.85 pm
+
+--- Hydroxyl (-OH) Bond Analysis ---
+O-H Delta EN: 1.24 (Highly Polar Covalent)
+Predicted O-H Length: 98.84 pm
+O-H Stretching Frequency: 112.02 THz (IR Active)
+Intermolecular Force: Strong Hydrogen Bonding detected.
+Vibration Frequency: 98.17 THz
+
+--- Multi-Center Geometry Analysis ---
+At Carbon Center: Tetrahedral (109.5°)
+At Oxygen (-OH) Center: Bent (~104.5°) due to Lone Pair Repulsion
+
+Run Digital Lab Simulation (MD) for this molecule? (y/n): y
+
+--- STABILIZED DIGITAL LAB: C3H7OH ---
+Step 0 | Temp: 0.00 K | Status: HEATING
+Step 200 | Temp: 412.57 K | Status: HEATING
+Step 400 | Temp: 484.97 K | Status: HEATING
+Step 600 | Temp: 493.73 K | Status: STABILIZED
+Step 800 | Temp: 494.79 K | Status: STABILIZED
+Step 1000 | Temp: 494.92 K | Status: STABILIZED
+
+Analyze another? (y/n): y
+
+How many unique element types? 1
+Enter Atomic Number (1-118): 1
+Enter Quantity: 2
+-> Hydrogen [1s^1]
+
+--- Discovery Scanner Analysis ---
+Status: [STABLE COMPOUND]
+
+--- Mass Composition ---
+H: 100.00%
+
+--- Physical State Prediction ---
+Estimated Boiling Point: ~-169.6°C
+Predicted Phase: Gas (at 25°C)
+
+--- Structural Details ---
+Molecular Formula: H2
+SMILES Notation: H
+Total Molecular Weight: 2.01568 g/mol
+
+Add a second molecule for a reaction test? (y/n): y
+Second Molecule - Unique element types: 1
+Atomic Num (1-118): 16
+Quantity: 1
+
+--- ⚗️ Reaction Prediction Lab ---
+Reaction: [SULFIDE FORMATION]
+Product: Hydrogen Sulfide (H2S) - Warning: Toxic/Rotten Egg Odor.
+
+--- Multi-Center Geometry Analysis ---
+
+Run Digital Lab Simulation (MD) for this molecule? (y/n): y
+
+--- STABILIZED DIGITAL LAB: H2 ---
+Step 0 | Temp: 0.00 K | Status: HEATING
+Step 200 | Temp: 199.09 K | Status: HEATING
+Step 400 | Temp: 235.25 K | Status: HEATING
+Step 600 | Temp: 239.98 K | Status: STABILIZED
+Step 800 | Temp: 240.61 K | Status: STABILIZED
+Step 1000 | Temp: 240.69 K | Status: STABILIZED
+
+Analyze another? (y/n): y
+
+How many unique element types? 2
+Enter Atomic Number (1-118): 6
+Enter Quantity: 1
+-> Carbon [1s^2 2s^2 2p^2]
+Enter Atomic Number (1-118): 1
+Enter Quantity: 4
+-> Hydrogen [1s^1]
+
+--- Discovery Scanner Analysis ---
+Status: [STABLE COMPOUND]
+
+--- Mass Composition ---
+C: 74.87%
+H: 25.13%
+
+--- Physical State Prediction ---
+Estimated Boiling Point: ~-134.8°C
+Predicted Phase: Gas (at 25°C)
+
+--- Structural Details ---
+Molecular Formula: CH4
+SMILES Notation: C
+Total Molecular Weight: 16.04236 g/mol
+
+Add a second molecule for a reaction test? (y/n): y
+Second Molecule - Unique element types: 1
+Atomic Num (1-118): 9
+Quantity: 2
+
+--- ⚗️ Reaction Prediction Lab ---
+Reaction: [HALOGENATION]
+Mechanism: Free Radical Substitution
+Status: Carbon-Halogen bonds forming. Potential Teflon precursor.
+Primary Bond Type: Non-Polar Covalent (Delta EN: 0.35)
+Predicted Bond Length (C-H): 110.85 pm
+Vibration Frequency: 98.17 THz
+
+--- Multi-Center Geometry Analysis ---
+At Carbon Center: Tetrahedral (109.5°)
+
+Run Digital Lab Simulation (MD) for this molecule? (y/n): y
+
+--- STABILIZED DIGITAL LAB: Methane (CH4) ---
+Step 0 | Temp: 0.00 K | Status: HEATING
+Step 200 | Temp: 93.38 K | Status: HEATING
+Step 400 | Temp: 109.44 K | Status: STABILIZED
+Step 600 | Temp: 111.25 K | Status: STABILIZED
+Step 800 | Temp: 111.47 K | Status: STABILIZED
+Step 1000 | Temp: 111.50 K | Status: STABILIZED
+
+Analyze another? (y/n): 
