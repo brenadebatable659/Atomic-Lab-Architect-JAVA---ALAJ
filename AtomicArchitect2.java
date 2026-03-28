@@ -24,7 +24,7 @@ Atomic Lab Architect JAVA - ALAJ
  */
 import java.util.*;
 
-public class AtomicArchitect {
+public class AtomicArchitect2 {
 
     static class Atom {
         String name, symbol, config;
