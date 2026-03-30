@@ -1,14 +1,14 @@
-/**/
 
-/**  
 
-MIT License 
-Copyright (c) [2026] Sam78887
+/*
+Copyright (c) 2026 Sam78887
+Licensed under SNSL v1.0
 Created by: Sam78887
-Date: March 2026
-(See LICENSE file for details)
-
+Non-Commercial Use Only
 */
+
+
+
 /**
 
 Atomic Lab Architect JAVA - ALAJ
