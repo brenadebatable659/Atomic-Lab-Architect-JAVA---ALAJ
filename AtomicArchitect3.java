@@ -231,6 +231,7 @@ private void generateConfigAndValence(int n) {
             System.out.printf("Total Molecular Weight: %.5f g/mol\n", totalWeight);
 
             // Inside the while loop in main
+            // Created by: Sam78887
 System.out.print("\nAdd a second molecule for a reaction test? (y/n): ");
 if (sc.next().equalsIgnoreCase("y")) {
     Map<String, Integer> countsB = new HashMap<>();
@@ -273,6 +274,7 @@ if (counts.containsKey("O") && counts.containsKey("H")) {
     System.out.printf("Predicted O-H Length: %.2f pm\n", bondLengthOH);
 
     // 3. Vibrational Frequency (The "IR Stretch")
+    // Created by: Sam78887
     double muAmu = (oxy.weight * hyd.weight) / (oxy.weight + hyd.weight);
     double muKg = muAmu * 1.660539e-27;
     
@@ -300,11 +302,12 @@ if (counts.containsKey("O") && counts.containsKey("H")) {
     double muKg = muAmu * 1.660539e-27;
     
     // 3. Estimate Force Constant (k) in N/m 
-    // We scale based on Electronegativity as a proxy for bond strength
+    // We scale based on Electronegativity as a proxy for bond strength Created by: Sam78887
     double k = 500.0 * (1.0 + Math.abs(central.en - secondary.en) / 2.0);
     
     // 4. Calculate Frequency in Hz, then convert to THz
     // 1 THz = 10^12 Hz
+    // Created by: Sam78887
     double freqHz = (1.0 / (2.0 * Math.PI)) * Math.sqrt(k / muKg);
     double freqTHz = freqHz / 1.0e12;
 
@@ -317,6 +320,7 @@ if (counts.containsKey("O") && counts.containsKey("H")) {
                 int lp = (central.valenceElectrons - (attached)) / 2;
                 if (lp < 0) lp = 0;
                 int sn = attached + lp;
+                // Created by: Sam78887
                 System.out.println("Central Atom: " + central.name);
                 System.out.println("Steric Number: " + sn + " (Atoms: " + attached + ", Lone Pairs: " + lp + ")");
                 predictGeometry(sn, lp);
@@ -332,6 +336,7 @@ if (counts.containsKey("O") && counts.containsKey("H")) {
     }
 
     // 2. Oxygen (Hydroxyl) Center Analysis
+    // Created by: Sam78887
     if (counts.containsKey("O") && counts.containsKey("H")) {
         // Oxygen in -OH has 2 bonds (C-O and O-H) and 2 lone pairs
         int snO = 4; 
@@ -359,17 +364,18 @@ if (counts.containsKey("O") && counts.containsKey("H")) {
         double sigma = 3.5, epsilon = 0.2, targetTemp = 200.0;
         String molName = "Generic Compound";
 
-        // Inside runLabSimulation
+        // Inside runLabSimulation Created by: Sam78887
 int cCount = counts.getOrDefault("C", 0);
 boolean hBond = counts.containsKey("H") && (counts.containsKey("O") || counts.containsKey("N"));
 
-// Sync the Lab Thermostat with the Physical State Prediction
+// Sync the Lab Thermostat with the Physical State Prediction Created by: Sam78887
 double bpCelsius = -170.0 + (cCount * 32.0) + (molWeight * 0.2) + (hBond ? 160.0 : 0.0);
 if (cCount == 0 && counts.getOrDefault("O", 0) == 1) bpCelsius = 100.0; // Water override
 
 targetTemp = bpCelsius + 273.15; // Convert to Kelvin for the MD loop
 
 // Calibration: Adjust "Stickiness" (Epsilon) based on chain length
+// Created by: Sam78887
 // This prevents the "Freezing" effect in the small 40-molecule box
 epsilon = hBond ? 0.55 : (cCount > 4 ? 0.22 : 0.15);
 
@@ -389,7 +395,7 @@ epsilon = hBond ? 0.55 : (cCount > 4 ? 0.22 : 0.15);
             int sCount = counts.getOrDefault("S", 0);
 
             // 2. Linear Surface Area Logic: +22.0K per Carbon fixes the "Heptanol Gap"
-            // Base value (40.0) + Carbon chain influence + heavy atom mass influence
+            // Base value (40.0) + Carbon chain influence + heavy atom mass influence Created by: Sam78887
             double surfaceAreaBase = (cCount * 22.0) + (molWeight * 0.4) + 40.0;
 
             // 3. Polarity Logic: Differentiates OH (Alcohol) vs NH (Amine) vs SH (Thiol)
@@ -408,19 +414,7 @@ epsilon = hBond ? 0.55 : (cCount > 4 ? 0.22 : 0.15);
             
             molName = generateFormula(counts);
         }
-            /** 
-            //epsilon = hBonding ? 0.45 : 0.18;
-            //targetTemp = (molWeight * 1.2) + (hBonding ? 180 : 60);
-            // Enhanced Universal Heuristic
-double baseBP = 120.0 * Math.log10(molWeight + 10.0); // Mass-based scaling
-double hBondBonus = hBonding ? 150.0 : 0.0;           // Polarity jump
-targetTemp = baseBP + hBondBonus;
 
-// Ensure we don't drop below a reasonable 'liquid' floor for organics
-if (hBonding && targetTemp < 330) targetTemp = 330; 
-
-molName = generateFormula(counts); // Dynamically name it
-        } */
 
         System.out.println("\n--- STABILIZED DIGITAL LAB: " + molName + " ---");
         int numMols = 40; double dt = 0.5;
@@ -495,7 +489,7 @@ public static void predictPhysicalState(Map<String, Integer> counts, double weig
     } else if (cCount == 0 && oCount == 1 && hCount == 2) {
         bpCelsius = 100.0; // Water override
     } else {
-        // Original Organic/Covalent logic
+        // Original Organic/Covalent logic Created by: Sam78887
         boolean hBond = hCount > 0 && (oCount > 0 || nCount > 0);
         double baseBP = -170.0; 
         double chainEffect = (cCount * 32.0); 
@@ -643,7 +637,7 @@ public static void predictReaction(Map<String, Integer> molA, Map<String, Intege
     int cB = molB.getOrDefault("C", 0), hB = molB.getOrDefault("H", 0), oB = molB.getOrDefault("O", 0);
     int clB = molB.getOrDefault("Cl", 0), sB = molB.getOrDefault("S", 0), fB = molB.getOrDefault("F", 0);
 
-    // 1. Combustion Check (Fuel + Oxygen)
+    // 1. Combustion Check (Fuel + Oxygen) Created by: Sam78887
     if (cA > 0 && oB >= 2 && cB == 0) {
         System.out.println("Reaction: [COMBUSTION / OXIDATION]");
         double enthalpy = (cA * 393.5) + (hA * 141.8); 
@@ -673,14 +667,14 @@ public static void predictReaction(Map<String, Integer> molA, Map<String, Intege
         System.out.println("Product: Ammonium Chloride (NH4Cl) - White Salt/Smoke.");
     }
 
-    // 4. Halogenation (Organic + Fluorine/Chlorine)
+    // 4. Halogenation (Organic + Fluorine/Chlorine) Created by: Sam78887
     else if (cA > 0 && (fB >= 2 || clB >= 2)) {
         System.out.println("Reaction: [HALOGENATION]");
         System.out.println("Mechanism: Free Radical Substitution");
         System.out.println("Status: Carbon-Halogen bonds forming. Potential Teflon precursor.");
     }
 
-    // 5. Synthesis of Sulfides (Metal/H2 + Sulfur)
+    // 5. Synthesis of Sulfides (Metal/H2 + Sulfur) Created by: Sam78887
     else if (sB > 0 && (hA > 0 || molA.containsKey("Fe") || molA.containsKey("Cu"))) {
         System.out.println("Reaction: [SULFIDE FORMATION]");
         if (hA > 0) System.out.println("Product: Hydrogen Sulfide (H2S) - Warning: Toxic/Rotten Egg Odor.");
