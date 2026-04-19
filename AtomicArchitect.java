@@ -160,14 +160,14 @@ public class AtomicArchitect {
                 String bType = (diff >= 1.7) ? "Ionic" : (diff >= 0.5) ? "Polar Covalent" : "Non-Polar Covalent";
                 System.out.println("Primary Bond Type: " + bType + " (Delta EN: " + String.format("%.2f", diff) + ")");
                 
-                // New: Spectroscopy & Bond Analysis
+                // New: Spectroscopy & Bond Analysis Created by: Sam78887
                 double bondLength = (central.radius + secondary.radius) - 9 * diff;
                 System.out.printf("Predicted Bond Length (%s-%s): %.2f pm\n", central.symbol, secondary.symbol, bondLength);
                 double mu = (central.weight * secondary.weight) / (central.weight + secondary.weight);
                 //double vibFreq = (1.0 / (2 * Math.PI)) * Math.sqrt((500.0 * (central.en * secondary.en / 4.0)) / (mu * 1.66e-27)) * 1e-12 / 1e8;
                 //System.out.printf("Vibration Frequency: ~%.2f THz\n", vibFreq);
                 if (secondary != null) {
-    // 1. Calculate Reduced Mass (mu) in amu
+    // 1. Calculate Reduced Mass (mu) in amu Created by: Sam78887
     double muAmu = (central.weight * secondary.weight) / (central.weight + secondary.weight);
     
     // 2. Convert mu to kg (CRITICAL STEP)
@@ -177,7 +177,7 @@ public class AtomicArchitect {
     // We scale based on Electronegativity as a proxy for bond strength
     double k = 500.0 * (1.0 + Math.abs(central.en - secondary.en) / 2.0);
     
-    // 4. Calculate Frequency in Hz, then convert to THz
+    // 4. Calculate Frequency in Hz, then convert to THz Created by: Sam78887
     // 1 THz = 10^12 Hz
     double freqHz = (1.0 / (2.0 * Math.PI)) * Math.sqrt(k / muKg);
     double freqTHz = freqHz / 1.0e12;
@@ -211,7 +211,7 @@ public class AtomicArchitect {
         double sigma = 3.5, epsilon = 0.2, targetTemp = 200.0;
         String molName = "Generic Compound";
 
-        // Heuristic Intelligence Layer
+        // Heuristic Intelligence Layer Created by: Sam78887
         boolean hBonding = counts.containsKey("H") && (counts.containsKey("N") || counts.containsKey("O") || counts.containsKey("F"));
         if (counts.getOrDefault("C",0)==1 && counts.getOrDefault("H",0)==4) { epsilon=0.148; sigma=3.73; targetTemp=111.6; molName="Methane (CH4)"; }
         else if (counts.getOrDefault("O",0)==1 && counts.getOrDefault("H",0)==2) { epsilon=0.650; sigma=3.16; targetTemp=373.15; molName="Water (H2O)"; }
@@ -243,6 +243,7 @@ public class AtomicArchitect {
                 }
             }
             double currentKE = 0;
+            // Created by: Sam78887
             for (Particle p : particles) {
                 double acc = 0.0004184 / molWeight;
                 p.vx += p.fx * acc * dt; p.vy += p.fy * acc * dt; p.vz += p.fz * acc * dt;
@@ -267,6 +268,7 @@ public class AtomicArchitect {
             int nCount = counts.getOrDefault("N", 0);
             estimatedBP += (oCount * 145) + (nCount * 90); 
         }
+        // Created by: Sam78887
         System.out.println("\n--- Physical State Prediction ---");
         System.out.printf("Estimated Boiling Point: ~%.1f°C\n", estimatedBP);
         if (estimatedBP < 25) System.out.println("Predicted Phase: Gas (at 25°C)");
@@ -281,6 +283,7 @@ public class AtomicArchitect {
         for (String s : sorted) sb.append(s).append(counts.get(s) > 1 ? counts.get(s) : "");
         return sb.toString();
     }
+    // Created by: Sam78887
 
     public static String generateSMILES(Atom central, Map<String, Integer> counts) {
         StringBuilder sm = new StringBuilder(central.symbol);
@@ -291,6 +294,7 @@ public class AtomicArchitect {
         });
         return sm.toString();
     }
+    // Created by: Sam78887
 
     public static void predictGeometry(int sn, int lp) {
         System.out.print("Molecular Geometry: ");
